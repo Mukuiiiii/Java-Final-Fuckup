@@ -1,0 +1,46 @@
+name: "test001"
+description: "test for this...?"
+# 基本名稱與對卡片的描述，這個description 要處理，
+#但底下的description類似單純附註
+# 本周先不處理
+
+# 外加上的純資料屬性跟動作
+# 舉例 hp 就是一種純資料屬性
+# 舉例 attack() 是一種動作， 但目前還沒想說在哪裡實現，但先寫被 terp 到的處理
+# 0420 silv
+
+components:
+  - type: "BaseInformation"
+    description: "description for this value"
+
+
+# 預想這裡要依序呼叫 ec.addattribute(entity, value) 來對 entity 加上
+  - type: "attribute"
+    description: "description for this attribute"
+    value:
+      - "race": "dragon"
+      - "humanity": -1
+
+# 當然重複加上不同屬性或是動作也是可以的，也是 terp 要處理的動作
+  - type: "attribute"
+    description: "description for this attribute"
+    value:
+      - "HorsePower": 999
+      - "ManaPoint": -1
+      - "cost":
+
+
+  # 預想這裡要呼叫 ec.addValue(entity, fun())，來指示該 entity 可以做這件事
+  - type: "move"
+    description: "description for move"
+    value:
+    - "attack":
+        - "cost": 1
+        - "mana_cost" 1
+    - "buff":
+      - "recover": 1
+      - "cost": 1
+
+# move 部分還不精準
+
+

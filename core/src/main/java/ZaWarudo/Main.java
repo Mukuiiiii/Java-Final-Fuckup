@@ -1,4 +1,4 @@
-package mainGame;
+package ZaWarudo;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.graphics.Texture;
