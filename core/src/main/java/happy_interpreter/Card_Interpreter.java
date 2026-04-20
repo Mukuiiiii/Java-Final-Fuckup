@@ -33,7 +33,7 @@ public class Card_Interpreter {
 
     private void interpret(entity entity, Map<String, Object> data) {
         /**
-         * explain the key of card. More will be add in future
+         * explain the key of card. More will be add in future. complete will also start in future
          */
         if (data.containsKey("name")) {
             ec.setName(entity, (String) data.get("name"));
