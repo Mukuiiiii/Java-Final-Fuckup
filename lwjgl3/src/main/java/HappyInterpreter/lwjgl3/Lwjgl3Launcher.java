@@ -1,4 +1,4 @@
-package happy_interpreter.lwjgl3;
+package HappyInterpreter.lwjgl3;
 
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;

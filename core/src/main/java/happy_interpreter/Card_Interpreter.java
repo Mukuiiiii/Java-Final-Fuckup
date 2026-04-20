@@ -4,11 +4,11 @@ import unhappy_EC.*;
 import java.util.Map;
 
 public class Card_Interpreter {
-    private final entity_control ec;
+//    private final entity_control ec;
     private final Load_Yaml loader;
 
     public Card_Interpreter() {
-        this.ec = new entity_control();
+//        this.ec = new entity_control();
         this.loader = new Load_Yaml();
     }
 
