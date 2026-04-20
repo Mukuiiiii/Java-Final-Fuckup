@@ -26,12 +26,13 @@ public class Card_Interpreter {
         Map<String, Object> data = yaml.load(file.read());
         /**
          * wait for entity
+         entity et = new entity(carfID);
+         interpreter(et, data);
+         return et;
          */
-        entity et = new entity();
-        return et;
     }
 
-    private void interpret(entity entity, Map<String, Object> data) {
+    private void interpreter(entity entity, Map<String, Object> data) {
         /**
          * explain the key of card. More will be add in future. complete will also start in future
          */

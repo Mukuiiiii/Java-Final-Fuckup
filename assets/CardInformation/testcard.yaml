@@ -1,0 +1,12 @@
+name: "prototype_fuckup_man"
+damage: 5
+manaCost: 3
+
+triggers:
+  on-summon:
+    action: "DEAL_DAMAGE"
+    target: "ENEMY"
+    value: 2
+  on-death:
+    action: "DRAW_CARD"
+    count: 1
