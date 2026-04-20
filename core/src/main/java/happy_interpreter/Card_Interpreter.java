@@ -16,10 +16,12 @@ public class Card_Interpreter {
         Map<String, Object> data = loader.load("CardInformation", cardId);
 
         if (data == null) return null;
-
+        /**
+         * I write a simple one first
         entity et = new entity(cardId);
         construct(et, data);
         return et;
+         */
     }
 
     private void construct(entity entity, Map<String, Object> data) {
