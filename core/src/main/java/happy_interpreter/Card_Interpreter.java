@@ -27,11 +27,8 @@ public class Card_Interpreter {
         /**
          * wait for entity
          */
-        entity newEntity = new entity(cardId);
-
-        interpret(newEntity, data);
-
-        return newEntity;
+        entity et = new entity();
+        return et;
     }
 
     private void interpret(entity entity, Map<String, Object> data) {
