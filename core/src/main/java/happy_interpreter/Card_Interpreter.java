@@ -17,7 +17,7 @@ public class Card_Interpreter {
     }
 
     public entity terp(String cardId) {
-        FileHandle file = Gdx.files.internal("cards/" + cardId + ".yaml");
+        FileHandle file = Gdx.files.internal("CardInformation/" + cardId + ".yaml");
         if (!file.exists()) {
             Gdx.app.error("Interpreter", "找不到檔案: " + cardId);
             return null;
