@@ -16,8 +16,9 @@ public class ECManager {
     }
 
     public Entity newEntity() {
-        Entity e = new Entity(this,  IDconuter++);
-        enties.put(IDconuter, e);
+        int currentId = IDconuter++;
+        Entity e = new Entity(this, currentId);
+        enties.put(currentId, e);
         return e;
     }
 

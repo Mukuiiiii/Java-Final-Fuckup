@@ -1,6 +1,9 @@
-name: "prototype_fuckup_man"
-damage: 5
-manaCost: 3
+BaseInfo:
+  name: "prototype_fuckup_man"
+  id: "testcard"
+Health: 5
+Damage: 3
+cost: 1
 
 triggers:
   on-summon:
