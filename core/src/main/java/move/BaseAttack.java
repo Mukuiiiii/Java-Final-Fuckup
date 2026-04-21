@@ -1,6 +1,6 @@
-package Move;
+package move;
 
-import UnhappyEC.Entity;
+import unhappyEC.Entity;
 
 public class BaseAttack extends Base {
 

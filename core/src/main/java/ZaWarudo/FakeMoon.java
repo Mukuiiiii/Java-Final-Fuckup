@@ -1,9 +1,9 @@
 package ZaWarudo;
 
-import UnhappyEC.*;
+import unhappyEC.*;
 
 public class FakeMoon {
-    private EntityControler controler;
+    private ECManager controler = new ECManager();
 
 
 

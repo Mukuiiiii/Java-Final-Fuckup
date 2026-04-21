@@ -1,4 +1,4 @@
-package Move;
+package move;
 
 public abstract class BaseMove {
     private String name;
