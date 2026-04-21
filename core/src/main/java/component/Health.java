@@ -5,7 +5,7 @@ import unhappyEC.Component;
 public class Health extends Component{
     private Integer Health;
 
-    Health(Integer Health) {
+    public Health(Integer Health) {
         this.Health = Health;
     }
 

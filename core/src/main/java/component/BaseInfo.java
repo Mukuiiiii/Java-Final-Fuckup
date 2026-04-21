@@ -1,19 +1,20 @@
 package component;
 
 import unhappyEC.Component;
-public class BaseInfo {
-   private String name;
-    private String description;
 
-    BaseInfo(String name, String description) {
+public class BaseInfo extends Component {
+    private String name;
+    private String id;
+
+    public BaseInfo(String name, String id) {
         this.name = name;
-        this.description = description;
+        this.id = id;
     }
     public String getName() {
         return name;
     }
-    public String getDescription() {
-        return description;
+    public String getId() {
+        return id;
     }
 
 
