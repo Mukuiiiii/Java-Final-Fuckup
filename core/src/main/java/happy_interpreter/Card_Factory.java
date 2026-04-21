@@ -3,40 +3,44 @@ package happy_interpreter;
 import unhappyEC.ECManager;
 import unhappyEC.Entity;
 import component.*;
+import happy_interpreter.Parsers.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Card_Factory {
     private final ECManager EC;
     private final Load_Yaml loader;
+    private final Map<String, ComponentParser> registry = new HashMap<>();
 
-    Card_Factory(ECManager EC) {
+    public Card_Factory(ECManager EC) {
         this.loader = new Load_Yaml();
         this.EC = EC;
+        setupRegistry();
     }
 
-
+    private void setupRegistry() {
+        registry.put("BaseInfo", new BaseInfoParser());
+        registry.put("Health", new HealthParser());
+        registry.put("Damage", new DamageParser());
+        // add more
+    }
 
 
     public Entity terp(String cardId) {
         Map<String, Object> data = loader.load("CardInformation", cardId);
 
         if (data == null) return null;
-        /**
-         * I write a simple one first
-        entity et = new entity(cardId);
+
+        Entity et = EC.newEntity();
         construct(et, data);
         return et;
-         */
     }
 
-    private void construct(Map<> data) {
-        Entity entity = EC.newEntity();
-        if (data.containsKey("name")) {
-            entity.addComponent(BaseInfo("abababab", "ajdsfjklsd"));
-        }
-        if (data.containsKey("Health")) {
-            entity.addComponent(Health(date.get("health").intValue()));
-        }
-//        感覺應該要有更好的做法，不然一個一個一個if-else加太蠢了
+    private void construct(final Entity entity, Map<String, Object> data) {
+        data.forEach((key, value) -> {
+            ComponentParser parser = registry.get(key);
+            parser.parseAndAdd(entity, value);
+        });
     }
 
 //    private void construct(entity entity, Map<String, Object> data) {
