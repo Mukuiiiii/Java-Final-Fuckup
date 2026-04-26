@@ -11,7 +11,6 @@ public class ECManager {
     private Integer IDconuter = 0;
 
     public ECManager() {
-    
         //       init
     }
 
@@ -21,6 +20,7 @@ public class ECManager {
         enties.put(currentId, e);
         return e;
     }
-
-
+    public Entity getEntity(Integer id) {
+        return enties.get(id);
+    }
 }

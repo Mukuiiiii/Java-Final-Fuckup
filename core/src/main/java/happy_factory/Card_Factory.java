@@ -1,9 +1,8 @@
-package happy_interpreter;
+package happy_factory;
 
 import unhappyEC.ECManager;
 import unhappyEC.Entity;
-import component.*;
-import happy_interpreter.Parsers.*;
+import happy_factory.Parsers.*;
 import java.util.HashMap;
 import java.util.Map;
 

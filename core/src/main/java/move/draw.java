@@ -7,7 +7,7 @@ import unhappyEC.Entity;
 
 // TODO:
 //  rename the class
-public class draw {
+public class draw extends  Move {
     public static void drawCard(Entity player, String from, String to) {
         CardStack fromStack = player.getComponent(player.class).getStack(from).getComponent(CardStack.class);
         CardStack toStack = player.getComponent(player.class).getStack(to).getComponent(CardStack.class);

@@ -5,6 +5,8 @@ import java.util.HashMap;
 
 public class Entity {
     private final Map<Class<? extends Component>, Component> componentList = new HashMap<>();
+    private final Map<Class<? extends Component>, Component> moveList = new HashMap<>();
+
     private final Integer id;
     private final ECManager EC;
 
@@ -19,10 +21,9 @@ public class Entity {
         return componentList.containsKey(clazz);
     }
 
-    public Entity addComponent(Component component) {
+    public void addComponent(Component component) {
        componentList.put(component.getClass(), component);
        component.setEntity(this);
-       return this;
     }
 
     public int getId() {
@@ -33,6 +34,9 @@ public class Entity {
         return EC;
     }
 
-
+    public <T extends Component> T getComponent(Class<T> componentClass) {
+        Component component = componentList.get(componentClass);
+        return componentClass.cast(component);
+    }
 
 }

@@ -1,4 +1,4 @@
-package happy_interpreter.Parsers;
+package happy_factory.Parsers;
 
 import java.util.Map;
 import unhappyEC.Entity;

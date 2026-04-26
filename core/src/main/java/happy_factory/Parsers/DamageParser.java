@@ -1,7 +1,6 @@
-package happy_interpreter.Parsers;
+package happy_factory.Parsers;
 
 import component.Damage;
-import component.Health;
 import unhappyEC.Entity;
 
 public class DamageParser implements ComponentParser {
