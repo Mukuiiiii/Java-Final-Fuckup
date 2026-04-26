@@ -29,6 +29,10 @@ public class Entity {
         return id;
     }
 
+    public <T extends Component> T getComponent(Class<T> componentClass) {
+        Component component = componentList.get(componentClass);
+        return componentClass.cast(component);
+    }
 
 
 }
