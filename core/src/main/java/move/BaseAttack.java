@@ -14,7 +14,7 @@ public class BaseAttack extends Base {
         defender.setAttribute("HorsePower",tmpHP);
         return;
     }
-
+    
 
 
     /**

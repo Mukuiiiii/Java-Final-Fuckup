@@ -3,15 +3,15 @@ package unhappyEC;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class ECManager {
 
-    private final Map<Integer, Entity> enties = new HashMap<>();
-//    unsafe for mulit player or client
+    private final Map<Integer, Entity> enties = new ConcurrentHashMap<>();
     private Integer IDconuter = 0;
 
-    ECManager() {
-
+    public ECManager() {
+    
         //       init
     }
 
@@ -21,5 +21,6 @@ public class ECManager {
         enties.put(currentId, e);
         return e;
     }
+
 
 }

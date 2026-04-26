@@ -10,7 +10,7 @@ public class Entity {
 
     boolean dead;
 
-    Entity(ECManager EC, Integer id) {
+    protected Entity(ECManager EC, Integer id) {
         this.EC = EC;
         this.id = id;
     }
@@ -22,11 +22,15 @@ public class Entity {
     public Entity addComponent(Component component) {
        componentList.put(component.getClass(), component);
        component.setEntity(this);
-        return this;
+       return this;
     }
 
     public int getId() {
         return id;
+    }
+
+    public ECManager getECManager() {
+        return EC;
     }
 
 
