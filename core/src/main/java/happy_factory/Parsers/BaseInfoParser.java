@@ -11,7 +11,9 @@ public class BaseInfoParser implements ComponentParser{
 
         String name = infoMap.get("name");
         String id = infoMap.get("id");
+        String flavor = infoMap.get("flavor");
+        String imagePath = infoMap.get("imagePath");
 
-        entity.addComponent(new BaseInfo(name, id));
+        entity.addComponent(new BaseInfo(name, id, flavor, imagePath));
     }
 }
