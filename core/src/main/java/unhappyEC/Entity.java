@@ -17,7 +17,7 @@ public class Entity {
         this.id = id;
     }
 
-    public boolean hasComponent(Class<? extends Component> clazz) {
+    public boolean has(Class<? extends Component> clazz) {
         return componentList.containsKey(clazz);
     }
 

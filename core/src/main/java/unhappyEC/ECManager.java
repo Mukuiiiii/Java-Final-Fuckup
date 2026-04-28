@@ -1,9 +1,11 @@
 package unhappyEC;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 public class ECManager {
 
@@ -22,5 +24,11 @@ public class ECManager {
     }
     public Entity getEntity(Integer id) {
         return enties.get(id);
+    }
+
+    public ArrayList<Entity> EntitiesWithComponents(Class<? extends Component> clazz) {
+        return enties.values().stream()
+            .filter(e -> e.has(clazz))
+            .collect(Collectors.toCollection(ArrayList::new));
     }
 }
