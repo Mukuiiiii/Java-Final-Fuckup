@@ -2,6 +2,7 @@ package component;
 
 import unhappyEC.Component;
 import unhappyEC.Entity;
+import
 
 public class EffectComponent extends Component {
     public String triggerType;
