@@ -21,9 +21,18 @@ public class Card_Factory {
         registry.put("BaseInfo", new BaseInfoParser());
         registry.put("Health", new HealthParser());
         registry.put("Damage", new DamageParser());
+
         // add more
     }
 
+    /**
+     * public static final ECSAttribute NAME = new ECSAttributeDefault("name");
+     * 	public static final ECSAttribute ID = new ECSAttributeDefault("id");
+     * 	public static final ECSAttribute FLAVOR = new ECSAttributeDefault("flavor");
+     * 	public static final ECSAttribute IMAGE_PATH = new ECSAttributeDefault("imagePath");
+     * @param cardId
+     * @return
+     */
 
     public Entity terp(String cardId) {
         Map<String, Object> data = loader.load("CardInformation", cardId);

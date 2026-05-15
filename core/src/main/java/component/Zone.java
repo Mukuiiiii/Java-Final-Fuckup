@@ -13,7 +13,7 @@ public class Zone extends Component {
     private final Entity ZoneSelf;
 
 
-    Zone(Entity owner, String name) {
+    public Zone(Entity owner, String name) {
 //        super(owner);
         this.owner = owner;
         this.name = name;

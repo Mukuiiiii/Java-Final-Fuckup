@@ -1,6 +1,8 @@
 package happy_factory;
 
 
+import component.Zone;
+import unhappyEC.Component;
 import unhappyEC.Entity;
 import unhappyEC.ECManager;
 
@@ -12,10 +14,13 @@ public class Player_Factory {
         this.EC = EC;
     }
 
-    public void creatPlayer() {
+    public Entity createPlayer() {
         Entity player = EC.newEntity();
         player.addComponent(new player());
-
+        player.addComponent(new Zone(player, "hand"));
+        player.addComponent(new Zone(player, "deck"));
+        player.addComponent(new Zone(player, "grave"));
+        return player;
     }
 
 //    public void

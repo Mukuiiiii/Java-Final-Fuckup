@@ -6,14 +6,14 @@ import java.util.List;
 import java.util.Map;
 
 public class EventManager {
-    private final Map<Class<? extends Event>, List<Listener<?>>> listenerMap = new HashMap<>();
+    private final Map<Class<? extends Events>, List<Listener<?>>> listenerMap = new HashMap<>();
 
-    public <T extends Event> void register(Class<T> eventClass, Listener<T> listener) {
+    public <T extends Events> void register(Class<T> eventClass, Listener<T> listener) {
         listenerMap.computeIfAbsent(eventClass, k -> new ArrayList<>()).add(listener);
     }
 
-    @SuppressWarnings("unchecked")
-    public <T extends Event> void post(T event) {
+    @SuppressWarnings("unchecke")
+    public <T extends Events> void post(T event) {
         List<Listener<?>> listeners = listenerMap.get(event.getClass());
         if (listeners != null) {
             for (Listener<?> l : listeners) {
@@ -21,5 +21,19 @@ public class EventManager {
                 ((Listener<T>) l).onEvent(event);
             }
         }
+    }
+
+    public <T extends Events> void beforeEvent(T event) {
+        this.post(event);
+    }
+
+    public <T extends Events> void afterEvent(T event) {
+        this.post(event);
+    }
+
+    public <T extends Events> void execEvent(T event, Runnable run) {
+        beforeEvent(event);
+        run.run();
+        afterEvent(event);
     }
 }
