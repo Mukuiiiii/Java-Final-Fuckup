@@ -10,7 +10,7 @@ public class ECManager {
 //    unsafe for mulit player or client
     private Integer IDconuter = 0;
 
-    public ECManager() {
+    ECManager() {
 
         //       init
     }
