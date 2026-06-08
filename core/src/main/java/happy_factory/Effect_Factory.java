@@ -2,9 +2,14 @@ package happy_factory;
 
 import unhappyEC.Entity;
 import component.BaseInfo;
+import component.EffectComponent;
 import java.util.function.Predicate;
 
 public class Effect_Factory {
+    public static EffectComponent createEffect(String triggerType, Predicate<Entity> condition, Runnable action) {
+        return new EffectComponent(triggerType, condition, action);
+    }
+
     public static Predicate<Entity> getCondition(String type, String param) {
         switch (type) {
             case "NAME_IS":

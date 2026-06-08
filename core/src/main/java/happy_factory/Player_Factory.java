@@ -1,8 +1,7 @@
 package happy_factory;
 
 
-import component.Zone;
-import unhappyEC.Component;
+import component.CardStack;
 import unhappyEC.Entity;
 import unhappyEC.ECManager;
 
@@ -10,20 +9,27 @@ import component.player;
 
 public class Player_Factory {
     private final ECManager EC;
-    Player_Factory(ECManager EC) {
+    public Player_Factory(ECManager EC) {
         this.EC = EC;
     }
 
     public Entity createPlayer() {
-        Entity player = EC.newEntity();
-        player.addComponent(new player());
-        player.addComponent(new Zone(player, "hand"));
-        player.addComponent(new Zone(player, "deck"));
-        player.addComponent(new Zone(player, "grave"));
-        return player;
+        Entity playerEntity = EC.newEntity();
+        player playerComponent = new player();
+        playerEntity.addComponent(playerComponent);
+
+        addStack(playerEntity, playerComponent, "hand");
+        addStack(playerEntity, playerComponent, "deck");
+        addStack(playerEntity, playerComponent, "grave");
+
+        return playerEntity;
     }
 
-//    public void
+    private void addStack(Entity owner, player playerComponent, String name) {
+        Entity stackEntity = EC.newEntity();
+        stackEntity.addComponent(new CardStack(owner, stackEntity, name));
+        playerComponent.addStack(stackEntity);
+    }
 
 
 }

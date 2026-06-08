@@ -26,6 +26,10 @@ public class ECManager {
         return enties.get(id);
     }
 
+    public ArrayList<Entity> getEntities() {
+        return new ArrayList<>(enties.values());
+    }
+
     public ArrayList<Entity> EntitiesWithComponents(Class<? extends Component> clazz) {
         return enties.values().stream()
             .filter(e -> e.has(clazz))

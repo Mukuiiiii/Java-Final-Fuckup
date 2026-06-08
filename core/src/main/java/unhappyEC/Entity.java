@@ -2,6 +2,8 @@ package unhappyEC;
 
 import java.util.Map;
 import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Entity {
     private final Map<Class<? extends Component>, Component> componentList = new HashMap<>();
@@ -18,7 +20,20 @@ public class Entity {
     }
 
     public boolean has(Class<? extends Component> clazz) {
-        return componentList.containsKey(clazz);
+        if (componentList.containsKey(clazz)) {
+            return true;
+        }
+
+        return componentList.keySet().stream()
+            .anyMatch(clazz::isAssignableFrom);
+    }
+
+    public boolean hasComponent(String componentName) {
+        return componentList.keySet().stream()
+            .anyMatch(componentClass ->
+                componentClass.getSimpleName().equals(componentName)
+                    || componentClass.getName().equals(componentName)
+            );
     }
 
     public void addComponent(Component component) {
@@ -36,7 +51,27 @@ public class Entity {
 
     public <T extends Component> T getComponent(Class<T> componentClass) {
         Component component = componentList.get(componentClass);
+        if (component == null) {
+            component = componentList.entrySet().stream()
+                .filter(entry -> componentClass.isAssignableFrom(entry.getKey()))
+                .map(Map.Entry::getValue)
+                .findFirst()
+                .orElse(null);
+        }
+
         return componentClass.cast(component);
+    }
+
+    public <T extends Component> List<T> getComponents(Class<T> componentClass) {
+        ArrayList<T> components = new ArrayList<>();
+
+        for (Component component : componentList.values()) {
+            if (componentClass.isInstance(component)) {
+                components.add(componentClass.cast(component));
+            }
+        }
+
+        return components;
     }
 
 }

@@ -3,6 +3,8 @@ package move;
 
 import component.CardStack;
 import component.player;
+import game.GameContext;
+import game.action.DrawCardAction;
 import unhappyEC.Entity;
 
 // TODO:
@@ -22,6 +24,10 @@ public class draw extends  Move {
             fromStack.popFromTop();
             toStack.insertCard(card);
         }
+    }
+
+    public static void drawCard(GameContext context, Entity player, String from, String to) {
+        new DrawCardAction(player, from, to).execute(context);
     }
 
 

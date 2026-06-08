@@ -5,6 +5,8 @@ import unhappyEC.Component;
 
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CardStack extends Component {
     private final LinkedList<Entity> cards = new LinkedList<>();
@@ -13,7 +15,7 @@ public class CardStack extends Component {
     private final Entity self;
 
 
-    CardStack(Entity owner, Entity self, String name) {
+    public CardStack(Entity owner, Entity self, String name) {
         this.owner = owner;
         this.name = name;
         this.self = self;
@@ -29,11 +31,14 @@ public class CardStack extends Component {
         cards.addLast(e);
         return;
     }
-    public void popFromTop() {
-        cards.removeFirst();
+    public Entity popFromTop() {
+        return cards.removeFirst();
     }
-    public void popFromBottom() {
-        cards.removeLast();
+    public Entity popFromBottom() {
+        return cards.removeLast();
+    }
+    public boolean removeCard(Entity e) {
+        return cards.remove(e);
     }
 
     public void shuffle() {
@@ -48,6 +53,10 @@ public class CardStack extends Component {
     }
     public Integer size() {
         return cards.size();
+    }
+
+    public List<Entity> getCards() {
+        return new ArrayList<>(cards);
     }
 
     public String name() {
